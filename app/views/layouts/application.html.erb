@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OctoEvents</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="<%= index_url %>">Octo Events</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto"></ul>
+
+          <%= form_tag search_issue_url, method: 'get', class: "form-inline mt-2 mt-md-0" do %>
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="issue_id" placeholder="E.g. 108">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="container-fluid">
+      <%= yield %>
+    </main>
+
+  </body>
+</html>

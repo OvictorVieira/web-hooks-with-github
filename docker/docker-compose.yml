@@ -1,0 +1,49 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD: "Postgres2019!"
+    ports:
+      - "15432:5432"
+    volumes:
+      - ../postgres:/var/www/html/octo_events/postgres
+    networks:
+      - postgres-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "octo_events@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin2019!"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - postgres-network
+
+  web:
+    tty: true
+    stdin_open: true
+    build: ./
+    container_name: octo_events
+    environment:
+      RAILS_MASTER_KEY: 8304bdfef7d8a18f370ae1e8808be678
+    privileged: true
+    volumes:
+      - ../:/var/www/html/octo_events
+    ports:
+      - "3000:3000"
+      - "80:80"
+    depends_on:
+      - postgres
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge

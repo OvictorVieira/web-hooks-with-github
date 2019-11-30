@@ -1,0 +1,20 @@
+common: &common
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  encoding: utf-8
+  username: <%= Rails.application.config.app.postgres.user %>
+  password: <%= Rails.application.config.app.postgres.password %>
+
+development:
+  <<: *common
+  host: postgres_db
+  database: octo_events_development
+
+test:
+  <<: *common
+  host: postgres_db
+  database: octo_events_test
+
+production:
+  <<: *common
+  database: octo_events_production
