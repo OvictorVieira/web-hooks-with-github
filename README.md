@@ -1,7 +1,5 @@
 # Octo Events
 
-![alt text](imgs/octo_events.png)
-
 <img src="https://img.shields.io/static/v1?label=COVERAGE&message=100&color=green&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=Licese&message=MIT&color=blue&style=for-the-badge"/> <img src="https://img.shields.io/static/v1?label=Ruby&message=2.6.6&color=red&style=for-the-badge&logo=RUBY"/> <img src="https://img.shields.io/static/v1?label=Ruby%20on%20Rails&message=6.0.0&color=red&style=for-the-badge&logo=Ruby"/>
 
 Este projeto possui uma pasta chamada "docker", dentro desta tem um arquivo chamado docker-compose.yml que é responsável por construir o ambiente de desenvolvimento completo para o projeto.
@@ -88,3 +86,6 @@ a criação de um **Server** no PgAdmin, para isso siga os comandos abaixo:
     * No github, adicione a URL gerada no campo Payload
 
 ![alt text](imgs/add_webhook.png)
+
+![alt text](imgs/octo_events.png)
+
